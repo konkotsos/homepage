@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="home-page-wrapper">
     <main-slider></main-slider>
     <intro-content></intro-content>
     <testimonials-slider></testimonials-slider>
@@ -8,9 +8,7 @@
 </template>
 
 <script>
-import IntroContent from '../components/IntroContent.vue'
 export default {
-  components: { IntroContent },
   layout: 'homePage',
   head() {
     // Set Meta Tags for this Page
