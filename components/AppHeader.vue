@@ -6,9 +6,12 @@
           <header-socials-list
             :socials-list="socialsList"
           ></header-socials-list>
-          <menu-list v-if="!isMobileView"></menu-list>
+          <header-menu-list
+            v-if="!isMobileView"
+            :menu-list="menuListLeft"
+          ></header-menu-list>
           <app-logo></app-logo>
-          <menu-list v-if="!isMobileView"></menu-list>
+          <header-menu-list v-if="!isMobileView"></header-menu-list>
           <menu-my-order></menu-my-order>
         </v-row>
       </v-container>
@@ -18,14 +21,14 @@
     </v-app-bar>
     <v-navigation-drawer v-model="showSidebar" right temporary fixed>
       sidebar
-      <menu-list></menu-list>
-      <menu-list></menu-list>
+      <header-menu-list></header-menu-list>
+      <header-menu-list></header-menu-list>
     </v-navigation-drawer>
   </div>
 </template>
 
 <script>
-import { getSocialsList } from '~~/api/common.js'
+import { getSocialsList, getHeaderMenuListLeft } from '~~/api/common.js'
 
 export default {
   name: 'AppHeader',
@@ -34,6 +37,8 @@ export default {
     return {
       showSidebar: false,
       socialsList: [],
+      menuListLeft: [],
+      menuListRight: [],
     }
   },
   computed: {
@@ -43,6 +48,7 @@ export default {
   },
   async created() {
     this.socialsList = await getSocialsList()
+    this.menuListLeft = await getHeaderMenuListLeft()
   },
 }
 </script>

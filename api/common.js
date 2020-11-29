@@ -21,3 +21,21 @@ export const getSocialsList = function () {
     resolve(socialsList)
   })
 }
+export const getHeaderMenuListLeft = function () {
+  return new Promise((resolve, reject) => {
+    const socialsList = [
+      {
+        name: 'shop',
+        label: 'Shop',
+        path: '#l1',
+      },
+      {
+        name: 'plan my kitchen',
+        label: 'Shop Plan My Kitchen',
+        path: '#l2',
+      },
+    ]
+
+    resolve(socialsList)
+  })
+}
