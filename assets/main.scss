@@ -43,10 +43,11 @@ body {
   color: #FFFFFF;
   text-transform: uppercase !important;
   margin-right: 30px;
-}
 
-// .menu-item.v-btn {
-//   &::before {
-//     opacity: 0 !important;
-//   }
-// }
+  &--vertical {
+    @extend .menu-item;
+    margin-right: 0 !important;
+    margin-bottom: 20px !important;
+
+  }
+}
