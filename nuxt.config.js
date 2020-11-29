@@ -63,6 +63,9 @@ export default {
         },
       },
     },
+    breakpoint: {
+      mobileBreakpoint: 'sm', // This is equivalent to a value of 960
+    },
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
