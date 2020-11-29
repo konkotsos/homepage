@@ -1,8 +1,6 @@
 <template>
-  <v-main>
-    <v-container>
-      <nuxt />
-    </v-container>
+  <v-main class="app-body">
+    <nuxt />
   </v-main>
 </template>
 
@@ -15,4 +13,9 @@ export default {
 }
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+.app-body {
+  position: relative;
+  top: -$app-header-height;
+}
+</style>
