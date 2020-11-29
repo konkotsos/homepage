@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="app-header">
     <v-app-bar
       app
       hide-on-scroll
@@ -85,7 +85,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .container {
   max-width: $container-width;
 }
