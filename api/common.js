@@ -58,3 +58,15 @@ export const getHeaderMenuListRight = function () {
     resolve(list)
   })
 }
+
+export const getHeaderMyOrderMenuItem = function () {
+  return new Promise((resolve, reject) => {
+    const menuItem = {
+      name: 'my order',
+      label: 'My Order',
+      path: '#myorder',
+    }
+
+    resolve(menuItem)
+  })
+}
