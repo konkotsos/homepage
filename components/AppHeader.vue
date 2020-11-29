@@ -1,19 +1,23 @@
 <template>
   <div>
     <v-app-bar fixed app>
-      <v-btn icon @click.stop="rightDrawer = !rightDrawer">
+      <v-container>
+        <v-row class="d-flex justify-space-between">
+          <socials-list></socials-list>
+          <menu-list v-if="!isMobileView"></menu-list>
+          <app-logo></app-logo>
+          <menu-list v-if="!isMobileView"></menu-list>
+          <menu-my-order></menu-my-order>
+        </v-row>
+      </v-container>
+      <v-btn v-if="isMobileView" icon @click.stop="showSidebar = !showSidebar">
         <v-icon>mdi-menu</v-icon>
       </v-btn>
     </v-app-bar>
-    <v-navigation-drawer v-model="rightDrawer" :right="right" temporary fixed>
-      <v-list>
-        <v-list-item @click.native="right = !right">
-          <v-list-item-action>
-            <v-icon light> mdi-repeat </v-icon>
-          </v-list-item-action>
-          <v-list-item-title>Switch drawer (click me)</v-list-item-title>
-        </v-list-item>
-      </v-list>
+    <v-navigation-drawer v-model="showSidebar" right temporary fixed>
+      sidebar
+      <menu-list></menu-list>
+      <menu-list></menu-list>
     </v-navigation-drawer>
   </div>
 </template>
@@ -21,13 +25,26 @@
 <script>
 export default {
   name: 'AppHeader',
+
   data() {
     return {
-      right: true,
-      rightDrawer: false,
+      showSidebar: false,
     }
+  },
+  computed: {
+    isMobileView() {
+      return this.$vuetify.breakpoint.xsOnly
+    },
+  },
+  created() {
+    /* eslint no-console: ["error", { allow: ["log"] }] */
+    console.log(this.$vuetify.breakpoint)
   },
 }
 </script>
 
-<style></style>
+<style lang="scss">
+.container {
+  max-width: $container-width;
+}
+</style>
