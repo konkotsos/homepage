@@ -3,7 +3,9 @@
     <v-app-bar fixed app>
       <v-container>
         <v-row class="d-flex justify-space-between">
-          <header-socials-list></header-socials-list>
+          <header-socials-list
+            :socials-list="socialsList"
+          ></header-socials-list>
           <menu-list v-if="!isMobileView"></menu-list>
           <app-logo></app-logo>
           <menu-list v-if="!isMobileView"></menu-list>
@@ -23,12 +25,15 @@
 </template>
 
 <script>
+import { getSocialsList } from '~~/api/common.js'
+
 export default {
   name: 'AppHeader',
 
   data() {
     return {
       showSidebar: false,
+      socialsList: [],
     }
   },
   computed: {
@@ -36,9 +41,8 @@ export default {
       return this.$vuetify.breakpoint.xsOnly
     },
   },
-  created() {
-    /* eslint no-console: ["error", { allow: ["log"] }] */
-    console.log(this.$vuetify.breakpoint)
+  async created() {
+    this.socialsList = await getSocialsList()
   },
 }
 </script>

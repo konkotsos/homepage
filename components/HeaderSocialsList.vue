@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-btn
-      v-for="({ name, icon, url }, index) in socials"
+      v-for="({ name, icon, url }, index) in socialsList"
       :key="index"
       :ripple="false"
       small
@@ -17,17 +17,18 @@
 </template>
 
 <script>
-import { getSocialsList } from '~~/api/common.js'
 export default {
   name: 'HeaderSocialsList',
-  data() {
-    return {
-      socials: [],
-    }
+  props: {
+    socialsList: {
+      type: Array,
+      default() {
+        return []
+      },
+    },
   },
-  async created() {
-    const socials = await getSocialsList()
-    this.socials = socials
+  data() {
+    return {}
   },
 }
 </script>
