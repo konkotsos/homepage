@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :class="{ 'd-flex flex-column justify-start': vertical }">
     <v-btn
       v-for="({ label, path }, index) in menuList"
       :key="index"
@@ -12,6 +12,7 @@
       :title="label"
       :to="path"
       class="menu-item"
+      :class="{ 'menu-item--vertical': vertical }"
       >{{ label }}
     </v-btn>
   </div>
@@ -26,6 +27,10 @@ export default {
       default() {
         return []
       },
+    },
+    vertical: {
+      type: Boolean,
+      default: false,
     },
   },
   data() {
