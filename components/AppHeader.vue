@@ -11,7 +11,10 @@
             :menu-list="menuListLeft"
           ></header-menu-list>
           <app-logo></app-logo>
-          <header-menu-list v-if="!isMobileView"></header-menu-list>
+          <header-menu-list
+            v-if="!isMobileView"
+            :menu-list="menuListRight"
+          ></header-menu-list>
           <menu-my-order></menu-my-order>
         </v-row>
       </v-container>
@@ -28,7 +31,11 @@
 </template>
 
 <script>
-import { getSocialsList, getHeaderMenuListLeft } from '~~/api/common.js'
+import {
+  getSocialsList,
+  getHeaderMenuListLeft,
+  getHeaderMenuListRight,
+} from '~~/api/common.js'
 
 export default {
   name: 'AppHeader',
@@ -49,6 +56,7 @@ export default {
   async created() {
     this.socialsList = await getSocialsList()
     this.menuListLeft = await getHeaderMenuListLeft()
+    this.menuListRight = await getHeaderMenuListRight()
   },
 }
 </script>

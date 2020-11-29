@@ -23,7 +23,7 @@ export const getSocialsList = function () {
 }
 export const getHeaderMenuListLeft = function () {
   return new Promise((resolve, reject) => {
-    const socialsList = [
+    const list = [
       {
         name: 'shop',
         label: 'Shop',
@@ -36,6 +36,25 @@ export const getHeaderMenuListLeft = function () {
       },
     ]
 
-    resolve(socialsList)
+    resolve(list)
+  })
+}
+
+export const getHeaderMenuListRight = function () {
+  return new Promise((resolve, reject) => {
+    const list = [
+      {
+        name: 'about us',
+        label: 'About us',
+        path: '#r1',
+      },
+      {
+        name: 'gallery',
+        label: 'Gallery',
+        path: '#r2',
+      },
+    ]
+
+    resolve(list)
   })
 }
