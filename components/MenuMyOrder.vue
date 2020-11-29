@@ -14,7 +14,7 @@
       :to="menuItem.path"
     >
       <span v-if="!isMobileView" class="menu-item">{{ menuItem.label }}</span>
-      <v-icon size="13">fas fa-shopping-cart</v-icon>
+      <v-icon size="13" color="white">fas fa-shopping-cart</v-icon>
     </v-btn>
   </div>
 </template>

@@ -1,5 +1,6 @@
 <template>
   <v-carousel
+    v-if="!isLoading"
     class="main-slider"
     :height="sliderHeight"
     :show-arrows="false"
@@ -78,7 +79,9 @@ export default {
     },
   },
   async created() {
+    this.isLoading = true
     this.slides = await getSlides()
+    this.isLoading = false
   },
 }
 </script>

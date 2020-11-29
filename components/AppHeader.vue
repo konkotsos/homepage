@@ -1,5 +1,5 @@
 <template>
-  <div class="app-header">
+  <div v-if="!isLoading" class="app-header">
     <v-app-bar
       app
       hide-on-scroll
@@ -77,10 +77,12 @@ export default {
   },
 
   async created() {
+    this.isLoading = true
     this.socialsList = await getSocialsList()
     this.menuListLeft = await getHeaderMenuListLeft()
     this.menuListRight = await getHeaderMenuListRight()
     this.menuItemMyOrder = await getHeaderMyOrderMenuItem()
+    this.isLoading = false
   },
 }
 </script>
