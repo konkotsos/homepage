@@ -31,7 +31,7 @@ export const getHeaderMenuListLeft = function () {
       },
       {
         name: 'plan my kitchen',
-        label: 'Shop Plan My Kitchen',
+        label: 'Plan My Kitchen',
         path: '#l2',
       },
     ]
