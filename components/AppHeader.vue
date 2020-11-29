@@ -3,7 +3,7 @@
     <v-app-bar
       app
       hide-on-scroll
-      height="110"
+      :height="headerHeight"
       color="transparent"
       elevation="0"
     >
@@ -34,10 +34,16 @@
       </v-btn>
     </v-app-bar>
 
-    <v-navigation-drawer v-model="showSidebar" right temporary fixed>
-      sidebar
-      <header-menu-list></header-menu-list>
-      <header-menu-list></header-menu-list>
+    <v-navigation-drawer
+      v-model="showSidebar"
+      class="app-sidebar"
+      right
+      temporary
+      fixed
+      color="rgba(0,0,0,0.5)"
+    >
+      <header-menu-list :menu-list="menuListLeft" vertical></header-menu-list>
+      <header-menu-list :menu-list="menuListRight" vertical></header-menu-list>
     </v-navigation-drawer>
   </div>
 </template>
@@ -64,6 +70,11 @@ export default {
       menuItemMyOrder: {},
     }
   },
+  computed: {
+    headerHeight() {
+      return this.isMobileView ? 60 : 110
+    },
+  },
 
   async created() {
     this.socialsList = await getSocialsList()
@@ -79,12 +90,18 @@ export default {
   max-width: $container-width;
 }
 
-.container::after {
+.v-toolbar::after {
   content: '';
   display: block;
   border-bottom: 1px solid #fff;
   position: relative;
-  top: 29px;
+  bottom: 0;
   opacity: 0.3;
+  max-width: 1300px;
+  margin: auto;
+}
+
+.app-sidebar {
+  padding-top: 50px;
 }
 </style>
