@@ -3,7 +3,7 @@
     <v-app-bar fixed app>
       <v-container>
         <v-row class="d-flex justify-space-between">
-          <socials-list></socials-list>
+          <header-socials-list></header-socials-list>
           <menu-list v-if="!isMobileView"></menu-list>
           <app-logo></app-logo>
           <menu-list v-if="!isMobileView"></menu-list>
