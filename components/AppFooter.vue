@@ -8,6 +8,15 @@ export default {
   data() {
     return {}
   },
+  computed: {
+    breakpoint() {
+      return this.$vuetify.breakpoint
+    },
+  },
+  created() {
+    // eslint-disable-next-line no-console
+    console.log(this.$vuetify.breakpoint)
+  },
 }
 </script>
 
