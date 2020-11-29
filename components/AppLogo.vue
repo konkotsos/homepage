@@ -1,5 +1,7 @@
 <template>
-  <v-img max-height="33" max-width="84" :src="'/mhk-logo.png'"></v-img>
+  <v-btn text :ripple="false" nuxt to="/">
+    <v-img max-height="33" max-width="84" :src="'/mhk-logo.png'"></v-img>
+  </v-btn>
 </template>
 
 <script>
@@ -13,4 +15,10 @@ export default {
 }
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+.v-btn {
+  &::before {
+    opacity: 0 !important;
+  }
+}
+</style>
