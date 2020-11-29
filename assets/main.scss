@@ -12,12 +12,17 @@ body {
   opacity: 1 !important;
   padding: 20px 60px !important;
   border-radius: 30px !important;
+  height: 60px !important;
 
   &--main {
     @extend .btn;
     background: $btn-bg-color 0% 0% no-repeat padding-box !important;
     box-shadow: 0px 2px 10px #00000033 !important;
     color: white !important;
+
+    &:hover {
+      background-color: $btn-hover-bg-color !important;
+    }
   }
 
   &--alt {
@@ -49,5 +54,37 @@ body {
     margin-right: 0 !important;
     margin-bottom: 20px !important;
 
+  }
+}
+
+.super-title {
+  text-align: center;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  line-height: 18px;
+  display: block;
+  ;
+
+  &--with-shadow {
+    @extend .super-title;
+    text-shadow: 0px 0px 4px #000000;
+  }
+}
+
+.main-title {
+  font-size: 52px;
+  line-height: 58px;
+  letter-spacing: -1px;
+
+  &--with-shadow {
+    @extend .main-title;
+    text-shadow: 0px 0px 4px #000000;
+  }
+
+  &-mobile {
+    font-size: 32px;
+    line-height: 38px;
   }
 }

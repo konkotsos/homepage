@@ -1,5 +1,11 @@
 <template>
-  <v-carousel :height="sliderHeight" :show-arrows="false">
+  <v-carousel
+    class="main-slider"
+    :height="sliderHeight"
+    :show-arrows="false"
+    hide-delimiter-background
+    delimiter-icon="mdi-minus"
+  >
     <v-carousel-item v-for="(slide, i) in slides" :key="i" :src="slide.src">
       <v-sheet :color="'transparent'" height="100%" tile>
         <v-row
@@ -8,12 +14,25 @@
           justify="center"
           color="transparent"
         >
-          <div class="text-center">
-            <span class="supper-title">{{ slide.superTitle }}12</span>
-            <h2 class="app-heading-1">{{ slide.title }}</h2>
-            <v-btn class="btn btn--main" nuxt :to="slide.path">{{
-              slide.btnLabel
-            }}</v-btn>
+          <div class="slide-content text-center">
+            <span class="super-title super-title--with-shadow">{{
+              slide.superTitle
+            }}</span>
+            <h2
+              :class="{
+                'main-title': !isMobileView,
+                'main-title-mobile': isMobileView,
+              }"
+            >
+              {{ slide.title }}
+            </h2>
+            <v-btn
+              class="btn btn--main"
+              :ripple="false"
+              nuxt
+              :to="slide.path"
+              >{{ slide.btnLabel }}</v-btn
+            >
           </div>
         </v-row>
       </v-sheet>
@@ -22,30 +41,24 @@
 </template>
 
 <script>
+import { getSlides } from '~~/api/slider.js'
+import mixins from '~/mixins'
+
 export default {
   name: 'MainSlider',
+  mixins: [mixins],
   data() {
     return {
-      slides: [
-        {
-          src: '/img/mainslider/slide1.png',
-          superTitle: 'Design and order your new kitchen online today',
-          title: 'Bespoke & made to measure handmade kitchen design',
-          path: '#slide1',
-          btnLabel: 'Order Now',
-        },
-        {
-          src: '/img/mainslider/slide1.png',
-        },
-      ],
+      slides: [],
     }
   },
   computed: {
     sliderHeight() {
       let height = 900
+
       switch (this.$vuetify.breakpoint.name) {
         case 'xs':
-          height = 400
+          height = 500
           break
         case 'sm':
           height = 500
@@ -64,7 +77,63 @@ export default {
       return height
     },
   },
+  async created() {
+    this.slides = await getSlides()
+  },
 }
 </script>
 
-<style></style>
+<style lang="scss">
+.main-slider {
+  .slide-content {
+    max-width: 700px;
+    width: 90%;
+    margin-top: 40px;
+  }
+
+  .super-title {
+    margin-bottom: 12px;
+  }
+
+  .main-title,
+  .main-title-mobile {
+    margin-bottom: 30px;
+  }
+
+  .v-carousel__controls {
+    .v-item-group {
+      line-height: 5px;
+      margin-bottom: 25px;
+    }
+  }
+
+  .v-carousel__controls__item {
+    width: 50px;
+    height: 5px;
+    &:before {
+      display: none !important;
+    }
+
+    .v-btn__content {
+      &:before {
+        content: '';
+        display: block;
+        width: 50px;
+        height: 5px;
+        background-color: #fff;
+      }
+      .v-icon {
+        display: none !important;
+      }
+    }
+  }
+
+  .v-item--active {
+    .v-btn__content {
+      &:before {
+        background-color: $highlighted-color;
+      }
+    }
+  }
+}
+</style>
