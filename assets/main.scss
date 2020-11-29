@@ -6,18 +6,30 @@ body {
 }
 
 .btn {
-  text-align: center;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  opacity: 1;
-  padding: 20px 60px;
-  border-radius: 30px;
+  text-align: center !important;
+  letter-spacing: 3px !important;
+  text-transform: uppercase !important;
+  opacity: 1 !important;
+  padding: 20px 60px !important;
+  border-radius: 30px !important;
 
   &--main {
     @extend .btn;
-    background: $btn-bg-color 0% 0% no-repeat padding-box;
-    box-shadow: 0px 2px 10px #00000033;
+    background: $btn-bg-color 0% 0% no-repeat padding-box !important;
+    box-shadow: 0px 2px 10px #00000033 !important;
     color: white !important;
+  }
+
+  &--alt {
+    @extend .btn;
+    border: 1px solid white;
+    padding: 20px 40px !important;
+  }
+
+  &--hidden-text {
+    @extend .btn;
+    padding: 0px !important;
+    border: none;
   }
 
 }
@@ -33,8 +45,8 @@ body {
   margin-right: 30px;
 }
 
-.menu-item.v-btn {
-  &::before {
-    opacity: 0 !important;
-  }
-}
+// .menu-item.v-btn {
+//   &::before {
+//     opacity: 0 !important;
+//   }
+// }
