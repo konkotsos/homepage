@@ -2,7 +2,9 @@
 
 body {
   font-size: $body-font-size;
-  color: $body-color;
+  font-weight: $body-font-weight;
+  color: $body-color !important;
+  line-height: $body-ling-height;
 }
 
 .btn {
@@ -58,7 +60,6 @@ body {
 }
 
 .super-title {
-  text-align: center;
   font-size: 13px;
   font-weight: 400;
   letter-spacing: 3px;
