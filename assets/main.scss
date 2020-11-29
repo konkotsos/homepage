@@ -20,7 +20,6 @@ body {
     color: white !important;
   }
 
-
 }
 
 .menu-item {
@@ -32,4 +31,10 @@ body {
   color: #FFFFFF;
   text-transform: uppercase !important;
   margin-right: 30px;
+}
+
+.menu-item.v-btn {
+  &::before {
+    opacity: 0 !important;
+  }
 }
