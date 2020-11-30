@@ -6,6 +6,7 @@
       :height="headerHeight"
       color="transparent"
       elevation="0"
+      absolute
     >
       <v-container>
         <v-row class="no-gutter d-flex justify-space-between align-center">
@@ -88,22 +89,25 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container {
-  max-width: $container-width;
-}
+.app-header {
+  margin-bottom: -$app-header-height;
+  .container {
+    max-width: $container-width;
+  }
 
-.v-toolbar::after {
-  content: '';
-  display: block;
-  border-bottom: 1px solid #fff;
-  position: relative;
-  bottom: 0;
-  opacity: 0.3;
-  max-width: 1300px;
-  margin: auto;
-}
+  .v-toolbar::after {
+    content: '';
+    display: block;
+    border-bottom: 1px solid #fff;
+    position: relative;
+    bottom: 0;
+    opacity: 0.3;
+    max-width: 1300px;
+    margin: auto;
+  }
 
-.app-sidebar {
-  padding-top: 50px;
+  .app-sidebar {
+    padding-top: 50px;
+  }
 }
 </style>

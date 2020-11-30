@@ -16,6 +16,5 @@ export default {
 <style lang="scss" scoped>
 .app-body {
   position: relative;
-  top: -$app-header-height;
 }
 </style>
