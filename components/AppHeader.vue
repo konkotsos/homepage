@@ -31,7 +31,7 @@
       </v-container>
 
       <v-btn v-if="isMobileView" icon @click.stop="showSidebar = !showSidebar">
-        <v-icon>mdi-menu</v-icon>
+        <v-icon color="white">mdi-menu</v-icon>
       </v-btn>
     </v-app-bar>
 
@@ -41,7 +41,7 @@
       right
       temporary
       fixed
-      color="rgba(0,0,0,0.5)"
+      color="rgba(0,0,0,0.8)"
     >
       <header-menu-list :menu-list="menuListLeft" vertical></header-menu-list>
       <header-menu-list :menu-list="menuListRight" vertical></header-menu-list>
