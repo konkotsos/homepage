@@ -1,5 +1,5 @@
 <template>
-  <v-container class="photo-gallery text-center">
+  <v-container v-if="!isLoading" class="photo-gallery text-center">
     <h4 class="photo-gallery-title main-title--gallery text-center">
       {{ title }}
     </h4>
