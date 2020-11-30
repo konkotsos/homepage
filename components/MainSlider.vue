@@ -1,6 +1,5 @@
 <template>
   <v-carousel
-    v-if="!isLoading"
     class="main-slider"
     :height="sliderHeight"
     :show-arrows="false"
@@ -42,16 +41,20 @@
 </template>
 
 <script>
-import { getSlides } from '~~/api/slider.js'
+// import { getSlides } from '~~/api/slider.js'
 import mixins from '~/mixins'
 
 export default {
   name: 'MainSlider',
   mixins: [mixins],
+  props: {
+    slides: {
+      type: Array,
+      required: true,
+    },
+  },
   data() {
-    return {
-      slides: [],
-    }
+    return {}
   },
   computed: {
     sliderHeight() {
@@ -78,11 +81,11 @@ export default {
       return height
     },
   },
-  async created() {
-    this.isLoading = true
-    this.slides = await getSlides()
-    this.isLoading = false
-  },
+  // async beforeCreate() {
+  //   this.isLoading = true
+  //   this.slides = await getSlides()
+  //   this.isLoading = false
+  // },
 }
 </script>
 

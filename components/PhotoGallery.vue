@@ -1,5 +1,5 @@
 <template>
-  <v-container v-if="!isLoading" class="photo-gallery text-center">
+  <v-container class="photo-gallery text-center">
     <h4 class="photo-gallery-title main-title--gallery text-center">
       {{ title }}
     </h4>
@@ -20,29 +20,31 @@
 </template>
 
 <script>
-import { getPhotoGalleryItems } from '~~/api/photoGallery.js'
-
 import mixins from '~/mixins'
 
 export default {
   name: 'PhotoGallery',
   mixins: [mixins],
-  data() {
-    return {
-      items: [],
-      title: '',
-      btnLabel: 'View More',
-      btnPath: '#galleries',
-    }
+  props: {
+    items: {
+      type: Array,
+      required: true,
+    },
+    title: {
+      type: String,
+      required: true,
+    },
+    btnLabel: {
+      type: String,
+      required: true,
+    },
+    btnPath: {
+      type: String,
+      required: true,
+    },
   },
-  async created() {
-    this.isLoading = true
-    const { items, btnLabel, btnPath, title } = await getPhotoGalleryItems()
-    this.items = items
-    this.btnLabel = btnLabel
-    this.btnPath = btnPath
-    this.title = title
-    this.isLoading = false
+  data() {
+    return {}
   },
 }
 </script>

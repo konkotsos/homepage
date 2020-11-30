@@ -1,6 +1,6 @@
 <template>
   <div class="testimonials-slider text-center" :height="sliderHeight">
-    <v-carousel v-if="!isLoading" :show-arrows="true" hide-delimiters>
+    <v-carousel :show-arrows="true" hide-delimiters>
       <v-carousel-item
         v-for="(slide, i) in testimonials"
         :key="i"
@@ -38,18 +38,27 @@
 </template>
 
 <script>
-import { getTestimonials } from '~~/api/testimonials.js'
 import mixins from '~/mixins'
 
 export default {
   name: 'TestimonialsSlider',
   mixins: [mixins],
+  props: {
+    testimonials: {
+      type: Array,
+      required: true,
+    },
+    path: {
+      type: String,
+      required: true,
+    },
+    btnLabel: {
+      type: String,
+      required: true,
+    },
+  },
   data() {
-    return {
-      testimonials: [],
-      path: '',
-      btnLabel: '',
-    }
+    return {}
   },
   computed: {
     sliderHeight() {
@@ -75,14 +84,6 @@ export default {
 
       return height
     },
-  },
-  async created() {
-    this.isLoading = true
-    const testimonialsData = await getTestimonials()
-    this.testimonials = testimonialsData.testimonials
-    this.path = testimonialsData.path
-    this.btnLabel = testimonialsData.btnLabel
-    this.isLoading = false
   },
 }
 </script>

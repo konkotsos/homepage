@@ -1,5 +1,5 @@
 <template>
-  <v-container v-if="!isLoading" fluid class="intro-content" fill-height>
+  <v-container fluid class="intro-content" fill-height>
     <v-row no-gutter fill-height align-center justify-center>
       <v-col cols="12" md="6" class="pa-0 d-flex align-strech"
         ><v-img :src="introContent.src"></v-img
@@ -35,16 +35,19 @@
 </template>
 
 <script>
-import { getIntroContent } from '~~/api/introContent.js'
 import mixins from '~/mixins'
 
 export default {
   name: 'IntroContent',
   mixins: [mixins],
+  props: {
+    introContent: {
+      type: Object,
+      required: true,
+    },
+  },
   data() {
-    return {
-      introContent: {},
-    }
+    return {}
   },
   computed: {
     sliderHeight() {
@@ -70,11 +73,6 @@ export default {
 
       return height
     },
-  },
-  async created() {
-    this.isLoading = true
-    this.introContent = await getIntroContent()
-    this.isLoading = false
   },
 }
 </script>
