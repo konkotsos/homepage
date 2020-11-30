@@ -124,11 +124,41 @@ export default {
 
   .btn-faq {
     position: relative;
-    top: -100px;
+    top: -50px;
+    @media (min-width: $breakpoint-xs) {
+      top: -70px;
+    }
+    @media (min-width: $breakpoint-sm) {
+      top: -80px;
+    }
+    @media (min-width: $breakpoint-md) {
+      top: -90px;
+    }
+    @media (min-width: $breakpoint-lg) {
+      top: -100px;
+    }
+
+    @media (max-width: $breakpoint-xs) {
+      display: none;
+    }
   }
 
   .v-window__prev {
-    left: 25%;
+    left: 1%;
+
+    @media (min-width: $breakpoint-xs) {
+      left: 5%;
+    }
+    @media (min-width: $breakpoint-sm) {
+      left: 15%;
+    }
+    @media (min-width: $breakpoint-md) {
+      left: 20%;
+    }
+    @media (min-width: $breakpoint-lg) {
+      left: 25%;
+    }
+
     background-color: transparent;
 
     .v-btn {
@@ -158,7 +188,20 @@ export default {
   }
 
   .v-window__next {
-    right: 25%;
+    right: 1%;
+    @media (min-width: $breakpoint-xs) {
+      right: 5%;
+    }
+    @media (min-width: $breakpoint-sm) {
+      right: 15%;
+    }
+    @media (min-width: $breakpoint-md) {
+      right: 20%;
+    }
+    @media (min-width: $breakpoint-lg) {
+      right: 25%;
+    }
+
     background-color: transparent;
 
     .v-btn {
