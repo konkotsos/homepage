@@ -1,5 +1,5 @@
 export const getSocialsList = function () {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     const socialsList = [
       {
         name: 'facebook',
@@ -22,7 +22,7 @@ export const getSocialsList = function () {
   })
 }
 export const getHeaderMenuListLeft = function () {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     const list = [
       {
         name: 'shop',
@@ -41,7 +41,7 @@ export const getHeaderMenuListLeft = function () {
 }
 
 export const getHeaderMenuListRight = function () {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     const list = [
       {
         name: 'about us',
@@ -60,7 +60,7 @@ export const getHeaderMenuListRight = function () {
 }
 
 export const getHeaderMyOrderMenuItem = function () {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     const menuItem = {
       name: 'my order',
       label: 'My Order',
@@ -68,5 +68,62 @@ export const getHeaderMyOrderMenuItem = function () {
     }
 
     resolve(menuItem)
+  })
+}
+
+export const getFooterMenus = function () {
+  return new Promise((resolve) => {
+    const menus = {
+      menus: [
+        {
+          title: 'About',
+          items: [
+            { label: 'Shop', path: '#shop' },
+            { label: 'Plan My Kitchen', path: '#planmykitchen' },
+            { label: 'About Us', path: '#aboutus' },
+            { label: 'Gallery', path: '#Gallery' },
+          ],
+        },
+        {
+          title: 'Service',
+          items: [
+            { label: 'FAQ', path: '#faq' },
+            { label: 'Contact', path: '#contact' },
+            { label: 'How to Buy', path: '#howtobuy' },
+            { label: 'Downloads', path: '#downloads' },
+          ],
+        },
+        {
+          title: 'Info',
+          items: [
+            { label: 'Delivery', path: '#delivery' },
+            { label: 'Terms', path: '#terms' },
+            { label: 'Privacy', path: '#privacy' },
+          ],
+        },
+      ],
+      socialsMenu: {
+        title: 'Follow',
+        items: [
+          {
+            name: 'facebook',
+            icon: 'fab fa-facebook-f',
+            url: 'https://facebook.com/',
+          },
+          {
+            name: 'twitter',
+            icon: 'fab fa-twitter',
+            url: 'https://twitter.com/',
+          },
+          {
+            name: 'instagram',
+            icon: 'fab fa-instagram',
+            url: 'https://instagram.com/',
+          },
+        ],
+      },
+    }
+
+    resolve(menus)
   })
 }
