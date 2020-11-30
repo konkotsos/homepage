@@ -10,6 +10,7 @@
       :title="name"
       :href="url"
       target="_blank"
+      color="white"
     >
       <v-icon size="16">{{ icon }}</v-icon>
     </v-btn>
